@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Navbar from './common/navbar/Navbar';
+import Progress from './components/progress/Progress'
+import { CssVarsProvider } from '@mui/joy/styles';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <Navbar></Navbar>
       </header>
+        <body className="App-body">
+            <div>body</div>
+            <CssVarsProvider>
+                <Progress var={25}/>
+            </CssVarsProvider>
+        </body>
     </div>
   );
 }

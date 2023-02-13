@@ -1,0 +1,29 @@
+$primary_1: #282c34;
+$primary_2: #b2ad7f;
+$primary_3: #878f99;
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: $primary_3;
+  min-height: 6vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-body {
+  min-height: 92vh;
+  background-color: $primary_1;
+  color: $primary_2;
+}
