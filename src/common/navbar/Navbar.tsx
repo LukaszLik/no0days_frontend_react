@@ -15,12 +15,12 @@ const Navbar = () => {
   return (
     <Box>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className="toolbar">
           <Typography
             variant="h6"
             component="div"
             align="left"
-            sx={{ flexGrow: 1 }}
+            sx={{ flexGrow: 1, color: "#e7063c" }}
           >
             no0days_logo_placeholder
           </Typography>
@@ -29,8 +29,7 @@ const Navbar = () => {
               onClick={loginButton}
               variant="outlined"
               color="inherit"
-              sx={{ margin: 1 }}
-              className="button"
+              sx={{ margin: 1, color: "#e7063c" }}
             >
               Login
             </Button>
@@ -39,8 +38,7 @@ const Navbar = () => {
               onClick={registerButton}
               variant="outlined"
               color="inherit"
-              sx={{ margin: 1 }}
-              className="button"
+              sx={{ margin: 1, color: "#e7063c" }}
             >
               Register
             </Button>

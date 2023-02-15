@@ -1,16 +1,15 @@
-$primary_1: #282c34;
-$primary_2: #b2ad7f;
-$primary_3: #878f99;
+@import "../../common/_variables.scss";
+//:root {
+//  background-color: $accent;
+//  color: $primary;
+//}
 
-.main-grid {
-  background: $primary_1;
-  color: #878f99;
+.toolbar {
+  background: $secondary;
+  //color: #878f99;
 }
 
-.logo {
-  alignment: left;
-}
-
-button {
-  text-align: right;
+.toolbar-button {
+  background-color: $accent;
+  color: $primary;
 }

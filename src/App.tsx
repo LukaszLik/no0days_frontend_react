@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/loginPage/login";
 import FrontPage from "./components/frontPage/frontPage";
 import Register from "./components/registerPage/register";
+import { CssVarsProvider } from "@mui/joy/styles";
 
 function App() {
   return (
@@ -12,13 +13,14 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar></Navbar>
-
-        <Routes>
-          <Route index element={<FrontPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          {/*<Route path="*" element={<NoPage />} />*/}
-        </Routes>
+        <CssVarsProvider>
+          <Routes>
+            <Route index element={<FrontPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            {/*<Route path="*" element={<NoPage />} />*/}
+          </Routes>
+        </CssVarsProvider>
       </BrowserRouter>
     </div>
   );

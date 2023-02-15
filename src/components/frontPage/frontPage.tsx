@@ -1,15 +1,13 @@
 import React from "react";
-import { CssVarsProvider } from "@mui/joy/styles";
 import Progress from "../progress/Progress";
+import "./frontPage.scss";
 
 export default function FrontPage() {
-  console.log("login page");
+  console.log("front page");
   return (
-    <div>
+    <div className="front">
       <div>body</div>
-      <CssVarsProvider>
-        <Progress var={25} />
-      </CssVarsProvider>
+      <Progress var={25} />
     </div>
   );
 }

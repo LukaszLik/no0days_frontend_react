@@ -11,26 +11,27 @@ import "./register.scss";
 export default function Register() {
   console.log("register page");
   return (
-    <div className="bg">
+    <div className="front">
       <div>REGISTER</div>
       <div className="form">
         <FormControl>
           <FormLabel sx={{ mt: 2 }}>Username:</FormLabel>
           <Input></Input>
-
+        </FormControl>
+        <FormControl>
           <FormLabel sx={{ mt: 2 }}>Email:</FormLabel>
           <Input></Input>
-
+        </FormControl>
+        <FormControl>
           <FormLabel sx={{ mt: 2 }}>Password:</FormLabel>
           <Input></Input>
-          <FormHelperText>
-            Password should have at least 8 characters.
-          </FormHelperText>
-
+          <FormHelperText>Must have at least 8 characters.</FormHelperText>
+        </FormControl>
+        <FormControl>
           <FormLabel sx={{ mt: 2 }}>Confirm password:</FormLabel>
           <Input></Input>
-          <Button type="submit">REGISTER</Button>
         </FormControl>
+        <Button sx={{ width: 100, mt: 2 }}>REGISTER</Button>
       </div>
     </div>
   );
