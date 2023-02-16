@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navbar.scss";
-import { Button, AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { Button } from "@mui/joy";
 import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
@@ -28,8 +29,7 @@ const Navbar = () => {
             <Button
               onClick={loginButton}
               variant="outlined"
-              color="inherit"
-              sx={{ margin: 1, color: "#e7063c" }}
+              sx={{ margin: 1, color: "#e7063c", borderColor: "#e7063c" }}
             >
               Login
             </Button>
@@ -37,8 +37,7 @@ const Navbar = () => {
             <Button
               onClick={registerButton}
               variant="outlined"
-              color="inherit"
-              sx={{ margin: 1, color: "#e7063c" }}
+              sx={{ margin: 1, color: "#e7063c", borderColor: "#e7063c" }}
             >
               Register
             </Button>

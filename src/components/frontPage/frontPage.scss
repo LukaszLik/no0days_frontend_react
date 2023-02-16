@@ -3,5 +3,15 @@
 .front {
   background-color: $primary;
   color: $secondary;
-  min-height: 93.3vh;
+  min-height: 93vh;
+}
+.month-name {
+  min-height: 3vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  color: $secondary;
+}
+
+.weekend {
+  color: $accent;
 }
