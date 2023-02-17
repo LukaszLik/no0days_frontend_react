@@ -3,7 +3,6 @@ import React from "react";
 import "./login.scss";
 
 export default function Login() {
-  console.log("login page");
   return (
     <div className="front">
       <div>LOGIN</div>

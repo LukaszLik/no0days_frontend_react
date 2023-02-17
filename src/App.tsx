@@ -11,6 +11,11 @@ function App() {
   return (
     // <BrowserRouter>
     <div className="App">
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="//fonts.googleapis.com/css?family=Wallpoet"
+      />
       <BrowserRouter>
         <Navbar></Navbar>
         <CssVarsProvider>

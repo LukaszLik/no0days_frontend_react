@@ -1,10 +1,9 @@
 import React from "react";
-import Progress from "../progress/Progress";
+import Progress from "../progress/progress";
 import "./frontPage.scss";
 import { Divider, Grid } from "@mui/joy";
 
 export default function FrontPage() {
-  console.log("front page");
   const date = new Date();
   const month = date.toLocaleDateString("default", { month: "long" });
   const numberOfDays = new Date(
@@ -12,17 +11,14 @@ export default function FrontPage() {
     date.getMonth() + 1,
     0
   ).getDate();
-  console.log("test: " + date.getFullYear() + " " + date.getMonth());
-  console.log("ilosc dni = " + numberOfDays);
   const offset = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-  console.log("day = " + offset);
 
   let progressArray = [];
   for (let i = 0; i < offset - 1; i++) {
     progressArray.push(<div></div>);
   }
   for (let i = 0; i < numberOfDays; i++) {
-    progressArray.push(<Progress var={i + 1} />);
+    progressArray.push(<Progress var={i + 1} month={month} />);
   }
 
   return (
