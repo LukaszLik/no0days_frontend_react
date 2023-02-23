@@ -8,17 +8,31 @@ type ModalProps = {
   month: string;
 };
 
+type TaskAttributes = {
+  id: number;
+  name: string;
+  completed: boolean;
+};
+
 export default function ProgressModal(props: ModalProps) {
-  const [checked, setChecked] = React.useState(false);
-  let numberOfObjectives = 4;
+  // temporary values, to be pulled from backend
+  const Tasks: TaskAttributes[] = [
+    { id: 1, name: "Task 1", completed: false },
+    { id: 2, name: "Task 2", completed: false },
+    { id: 3, name: "Task 3", completed: false },
+    { id: 4, name: "Task 4", completed: false },
+  ];
+
+  const [tasks, setTasks] = React.useState(Tasks);
 
   function checkboxOnChange(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log(e.target.checked + "  /  " + e.target.id);
-    if (e.target.checked) {
-      setChecked(true);
-    } else {
-      setChecked(false);
-    }
+    let newTasks = [...tasks];
+    tasks.map((task, id) => {
+      if (e.target.id === (id + 1).toString()) {
+        newTasks[id].completed = e.target.checked;
+        setTasks(newTasks);
+      }
+    });
   }
 
   return (
@@ -64,38 +78,19 @@ export default function ProgressModal(props: ModalProps) {
           Daily objectives achieved:
         </Typography>
         <List sx={{ mt: 2 }}>
-          <Checkbox
-            id="1"
-            checked={checked}
-            onChange={checkboxOnChange}
-            variant="soft"
-            label="Task 1"
-            sx={{ mt: 1 }}
-          />
-          <Checkbox
-            id="2"
-            checked={checked}
-            onChange={checkboxOnChange}
-            variant="soft"
-            label="Task 2"
-            sx={{ mt: 1 }}
-          />
-          <Checkbox
-            id="3"
-            checked={checked}
-            onChange={checkboxOnChange}
-            variant="soft"
-            label="Task 3"
-            sx={{ mt: 1 }}
-          />
-          <Checkbox
-            id="4"
-            checked={checked}
-            onChange={checkboxOnChange}
-            variant="soft"
-            label="Task 4"
-            sx={{ mt: 1 }}
-          />
+          {tasks.map((task, idx) => {
+            return (
+              <Checkbox
+                key={idx}
+                id={task.id.toString()}
+                checked={task.completed}
+                onChange={checkboxOnChange}
+                variant="soft"
+                label={task.name}
+                sx={{ mt: 1 }}
+              />
+            );
+          })}
         </List>
       </Sheet>
     </Modal>

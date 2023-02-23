@@ -66,8 +66,12 @@ export default function FrontPage() {
         </Grid>
         <Divider orientation="horizontal" />
 
-        {progressArray.map(function (obj) {
-          return <Grid xs={1}>{obj}</Grid>;
+        {progressArray.map((obj, idx) => {
+          return (
+            <Grid key={idx} xs={1}>
+              {obj}
+            </Grid>
+          );
         })}
       </Grid>
     </div>
