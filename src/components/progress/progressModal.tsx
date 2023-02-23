@@ -26,11 +26,13 @@ export default function ProgressModal(props: ModalProps) {
   const [tasks, setTasks] = React.useState(Tasks);
 
   function checkboxOnChange(e: React.ChangeEvent<HTMLInputElement>) {
-    let newTasks = [...tasks];
     tasks.map((task, id) => {
       if (e.target.id === (id + 1).toString()) {
-        newTasks[id].completed = e.target.checked;
-        setTasks(newTasks);
+        setTasks(
+          tasks.map((task) =>
+            task.id === id + 1 ? { ...task, completed: e.target.checked } : task
+          )
+        );
       }
     });
   }
