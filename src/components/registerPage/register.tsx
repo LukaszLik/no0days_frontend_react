@@ -30,7 +30,7 @@ export default function Register() {
           <FormLabel sx={{ mt: 2 }}>Confirm password:</FormLabel>
           <Input></Input>
         </FormControl>
-        <Button sx={{ width: 100, mt: 2 }}>REGISTER</Button>
+        <Button sx={{ width: 100, mt: 2 }}>Sign up</Button>
       </div>
     </div>
   );

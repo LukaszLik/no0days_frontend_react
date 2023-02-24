@@ -1,3 +1,5 @@
+@import "../../common/_variables.scss";
+
 .bg {
   min-height: 93vh;
   display: flex;
@@ -9,4 +11,25 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  //width: 40vw;
+  height: 30vh;
+}
+
+.button-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.signin-div {
+  padding-top: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 15vh;
+}
+
+.form-input {
+  background-color: $primary !important;
+  border-color: $secondary !important;
 }

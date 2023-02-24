@@ -51,7 +51,7 @@ const Navbar = () => {
               variant="outlined"
               sx={{ margin: 1, color: "#e7063c", borderColor: "#e7063c" }}
             >
-              Login
+              Sign in
             </Button>
 
             <Button
@@ -59,7 +59,7 @@ const Navbar = () => {
               variant="outlined"
               sx={{ margin: 1, color: "#e7063c", borderColor: "#e7063c" }}
             >
-              Register
+              Sign up
             </Button>
           </Box>
         </Toolbar>
