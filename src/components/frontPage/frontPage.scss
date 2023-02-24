@@ -4,6 +4,7 @@
   background-color: $primary;
   color: $secondary;
   min-height: 93vh;
+  max-height: 110vh;
 }
 .month-name {
   min-height: 3vh;
@@ -14,4 +15,9 @@
 
 .weekend {
   color: $accent;
+}
+
+.grid-div {
+  display: flex;
+  justify-content: center;
 }

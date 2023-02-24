@@ -18,7 +18,7 @@ export default function FrontPage() {
     progressArray.push(<div></div>);
   }
   for (let i = 0; i < numberOfDays; i++) {
-    progressArray.push(<Progress var={i + 1} month={month} />);
+    progressArray.push(<Progress var={0} day={i + 1} month={month} />);
   }
 
   return (
@@ -27,53 +27,57 @@ export default function FrontPage() {
         <h1>{month}</h1>
       </div>
       {/*<Progress var={25} />*/}
-      <Grid
-        container
-        direction="row"
-        columns={7}
-        sx={{
-          "--Grid-borderWidth": "2px",
-          borderTop: "var(--Grid-borderWidth) solid",
-          borderLeft: "var(--Grid-borderWidth) solid",
-          borderColor: "divider",
-          "& > div": {
-            borderRight: "var(--Grid-borderWidth) solid",
-            borderBottom: "var(--Grid-borderWidth) solid",
+      <div className="grid-div">
+        <Grid
+          container
+          direction="row"
+          columns={7}
+          sx={{
+            width: "60vw",
+            height: "70vh",
+            "--Grid-borderWidth": "2px",
+            borderTop: "var(--Grid-borderWidth) solid",
+            borderLeft: "var(--Grid-borderWidth) solid",
             borderColor: "divider",
-          },
-        }}
-      >
-        <Grid xs={1}>
-          <h5>Mon</h5>
-        </Grid>
-        <Grid xs={1}>
-          <h5>Tue</h5>
-        </Grid>
-        <Grid xs={1}>
-          <h5>Wed</h5>
-        </Grid>
-        <Grid xs={1}>
-          <h5>Thu</h5>
-        </Grid>
-        <Grid xs={1}>
-          <h5>Fri</h5>
-        </Grid>
-        <Grid xs={1}>
-          <h5 className="weekend">Sat</h5>
-        </Grid>
-        <Grid xs={1}>
-          <h5 className="weekend">Sun</h5>
-        </Grid>
-        <Divider orientation="horizontal" />
+            "& > div": {
+              borderRight: "var(--Grid-borderWidth) solid",
+              borderBottom: "var(--Grid-borderWidth) solid",
+              borderColor: "divider",
+            },
+          }}
+        >
+          <Grid xs={1}>
+            <h5>Mon</h5>
+          </Grid>
+          <Grid xs={1}>
+            <h5>Tue</h5>
+          </Grid>
+          <Grid xs={1}>
+            <h5>Wed</h5>
+          </Grid>
+          <Grid xs={1}>
+            <h5>Thu</h5>
+          </Grid>
+          <Grid xs={1}>
+            <h5>Fri</h5>
+          </Grid>
+          <Grid xs={1}>
+            <h5 className="weekend">Sat</h5>
+          </Grid>
+          <Grid xs={1}>
+            <h5 className="weekend">Sun</h5>
+          </Grid>
+          <Divider orientation="horizontal" />
 
-        {progressArray.map((obj, idx) => {
-          return (
-            <Grid key={idx} xs={1}>
-              {obj}
-            </Grid>
-          );
-        })}
-      </Grid>
+          {progressArray.map((obj, idx) => {
+            return (
+              <Grid key={idx} xs={1}>
+                {obj}
+              </Grid>
+            );
+          })}
+        </Grid>
+      </div>
     </div>
   );
 }

@@ -1,10 +1,16 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { Checkbox, List, Modal, ModalClose, Sheet, Typography } from "@mui/joy";
+
+type Progress = {
+  progress: number;
+  setProgress: Dispatch<SetStateAction<number>>;
+};
 
 type ModalProps = {
   open: boolean;
   setOpen: (setValueFunc: boolean) => void;
-  val: number;
+  val: Progress;
+  day: number;
   month: string;
 };
 
@@ -33,6 +39,9 @@ export default function ProgressModal(props: ModalProps) {
             task.id === id + 1 ? { ...task, completed: e.target.checked } : task
           )
         );
+        e.target.checked
+          ? props.val.setProgress(props.val.progress + 25)
+          : props.val.setProgress(props.val.progress - 25);
       }
     });
   }
@@ -42,7 +51,7 @@ export default function ProgressModal(props: ModalProps) {
       aria-labelledby="modal-title"
       aria-describedby="modal-desc"
       open={props.open}
-      onClose={(event, reason) => {
+      onClose={() => {
         props.setOpen(false);
       }}
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
@@ -74,7 +83,7 @@ export default function ProgressModal(props: ModalProps) {
           fontWeight="lg"
           mb={1}
         >
-          {props.month} {props.val}
+          {props.month} {props.day}
         </Typography>
         <Typography id="modal-desc" textColor="text.tertiary">
           Daily objectives achieved:
@@ -89,7 +98,7 @@ export default function ProgressModal(props: ModalProps) {
                 onChange={checkboxOnChange}
                 variant="soft"
                 label={task.name}
-                sx={{ mt: 1 }}
+                sx={{ mt: 1.5, mb: 1.5 }}
               />
             );
           })}
