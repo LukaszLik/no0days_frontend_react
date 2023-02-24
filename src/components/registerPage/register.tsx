@@ -9,7 +9,6 @@ import React from "react";
 import "./register.scss";
 
 export default function Register() {
-  console.log("register page");
   return (
     <div className="front">
       <div>REGISTER</div>

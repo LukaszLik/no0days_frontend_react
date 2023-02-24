@@ -3,5 +3,21 @@
 .front {
   background-color: $primary;
   color: $secondary;
-  min-height: 93.3vh;
+  min-height: 93vh;
+  max-height: 110vh;
+}
+.month-name {
+  min-height: 3vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  color: $secondary;
+}
+
+.weekend {
+  color: $accent;
+}
+
+.grid-div {
+  display: flex;
+  justify-content: center;
 }
