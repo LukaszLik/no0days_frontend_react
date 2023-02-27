@@ -51,6 +51,10 @@ export default function Login() {
                       width: 5,
                       color: "#181c1b",
                       borderColor: "transparent",
+                      "&:hover": {
+                        backgroundColor: "transparent",
+                        borderColor: "transparent",
+                      },
                     }}
                   >
                     {visible ? <VisibilityIcon /> : <VisibilityOffIcon />}

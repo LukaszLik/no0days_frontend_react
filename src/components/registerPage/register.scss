@@ -1,0 +1,17 @@
+@import "../../common/_variables.scss";
+
+.register-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  //width: 40vw;
+  height: 80vh;
+}
+
+.form-input-error {
+  background-color: $primary !important;
+  border-color: darkred !important;
+  width: 18vw;
+  min-width: 15vw;
+}
