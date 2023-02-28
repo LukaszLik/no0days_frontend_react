@@ -7,6 +7,7 @@ import {
   Input,
 } from "@mui/joy";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./register.scss";
 
 export default function Register() {
@@ -24,39 +25,75 @@ export default function Register() {
     password2: boolean;
   }>({ username: false, email: false, password1: false, password2: false });
 
+  const [sent, setSent] = React.useState(false);
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     console.log(
       `reg:\n ${data.username}\n${data.email}\n${data.password1}\n${data.password2}`
     );
+    console.log(window.location.href);
+
+    if (window.location.href.endsWith("?")) {
+      console.log("sent");
+      setSent(true);
+    } else {
+      setSent(false);
+      console.log("not sent");
+    }
+
+    if (
+      !error.username &&
+      !error.email &&
+      !error.password1 &&
+      !error.password2
+    ) {
+      setSent(true);
+    } else {
+      setSent(false);
+    }
   }
 
-  function validateForm() {
-    if (data.username === "") {
+  function usernameOnChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setData({ ...data, username: event.target.value });
+
+    if (event.target.value === "") {
       setError({ ...error, username: true });
     } else {
       setError({ ...error, username: false });
     }
   }
 
-  function usernameOnChange(event: React.ChangeEvent<HTMLInputElement>){
-    setData({ ...data, username: event.target.value });
-
-      if (event.target.value === "") {
-        setError({ ...error, username: true });
-      } else {
-        setError({ ...error, username: false });
-      }
-  }
-
-  function emailOnChange(event: React.ChangeEvent<HTMLInputElement>){
-    setData({...data, email: event.target.value})
-      const regex =
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  function emailOnChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setData({ ...data, email: event.target.value });
+    const regex =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (data.email.length === 0 || !regex.test(event.target.value)) {
       setError({ ...error, email: true });
     } else {
       setError({ ...error, email: false });
+    }
+  }
+
+  function password1OnChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    setData({ ...data, password1: event.target.value });
+
+    if (!reg.test(event.target.value)) {
+      setError({ ...error, password1: true });
+    } else {
+      setError({ ...error, password1: false });
+    }
+  }
+
+  function password2OnChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setData({ ...data, password2: event.target.value });
+
+    if (data.password1 !== event.target.value) {
+      setError({ ...error, password2: true });
+    } else {
+      setError({ ...error, password2: false });
     }
   }
 
@@ -74,6 +111,13 @@ export default function Register() {
                 value={data.username}
                 onChange={usernameOnChange}
               ></Input>
+              {error.username ? (
+                <FormHelperText className="input-helper">
+                  Username cannot be empty.
+                </FormHelperText>
+              ) : (
+                <div></div>
+              )}
             </FormControl>
             <FormControl>
               <FormLabel sx={{ mt: 2 }}>Email:</FormLabel>
@@ -82,39 +126,55 @@ export default function Register() {
                 required
                 error={error.email}
                 value={data.email}
-                onChange={emailOnChange
-                }
+                onChange={emailOnChange}
               ></Input>
+              {error.email ? (
+                <FormHelperText className="input-helper">
+                  Please enter a valid email address.
+                </FormHelperText>
+              ) : (
+                <div></div>
+              )}
             </FormControl>
             <FormControl>
               <FormLabel sx={{ mt: 2 }}>Password:</FormLabel>
               <Input
                 className={error.password1 ? "form-input-error" : "form-input"}
                 required
+                type="password"
                 error={error.password1}
                 value={data.password1}
-                onChange={(event) =>
-                  setData({ ...data, password1: event.target.value })
-                }
+                onChange={password1OnChange}
               ></Input>
-              <FormHelperText>Must have at least 8 characters.</FormHelperText>
+              {error.password1 ? (
+                <FormHelperText className="input-helper">
+                  Minimum 8 characters, at least 1 letter and 1 number.
+                </FormHelperText>
+              ) : (
+                <div></div>
+              )}
             </FormControl>
             <FormControl>
               <FormLabel sx={{ mt: 2 }}>Confirm password:</FormLabel>
               <Input
                 className={error.password2 ? "form-input-error" : "form-input"}
                 required
+                type="password"
                 error={error.password2}
                 value={data.password2}
-                onChange={(event) =>
-                  setData({ ...data, password2: event.target.value })
-                }
+                onChange={password2OnChange}
               ></Input>
+              {error.password2 ? (
+                <FormHelperText className="input-helper">
+                  Passwords do not match.
+                </FormHelperText>
+              ) : (
+                <div></div>
+              )}
             </FormControl>
             <div className="button-div">
               <Button
                 type="submit"
-                onClick={validateForm}
                 variant="outlined"
                 sx={{
                   width: 100,
@@ -131,6 +191,16 @@ export default function Register() {
           </form>
         </Card>
       </div>
+      {sent ? (
+        <div className="signup-div">
+          <h2>
+            Your account has been registered! To log in click{" "}
+            <Link to={"/login"}>here</Link>.
+          </h2>
+        </div>
+      ) : (
+        <div className="signup-div"></div>
+      )}
     </div>
   );
 }

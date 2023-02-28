@@ -6,7 +6,18 @@
   justify-content: center;
   flex-direction: column;
   //width: 40vw;
-  height: 80vh;
+  height: 40vh;
+  min-height: 20vh;
+  padding-top: 20vh;
+}
+
+.signup-div {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .form-input-error {
@@ -14,4 +25,11 @@
   border-color: darkred !important;
   width: 18vw;
   min-width: 15vw;
+}
+
+.input-helper {
+  font-size: 0.7em !important;
+  inline-size: 18vw;
+  justify-content: left;
+  color: darkred !important;
 }
