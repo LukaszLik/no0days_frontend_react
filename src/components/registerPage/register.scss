@@ -6,14 +6,15 @@
   justify-content: center;
   flex-direction: column;
   //width: 40vw;
-  height: 40vh;
-  min-height: 20vh;
-  padding-top: 20vh;
+  height: 45vh;
+  min-height: 40vh;
+  margin-top: 4vh;
+  margin-bottom: 3vh;
 }
 
 .signup-div {
-  padding-top: 10vh;
-  padding-bottom: 10vh;
+  padding-top: 5vh;
+  margin-bottom: 5vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,4 +33,12 @@
   inline-size: 18vw;
   justify-content: left;
   color: darkred !important;
+}
+
+.registered-message {
+  color: $secondary;
+}
+
+.link {
+  text-decoration: none !important;
 }

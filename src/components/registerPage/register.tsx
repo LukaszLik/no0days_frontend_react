@@ -99,6 +99,9 @@ export default function Register() {
 
   return (
     <div className="front">
+      <div className="signup-div">
+        <h2>Sign up below to get access to No 0 Days App!</h2>
+      </div>
       <div className="register-form">
         <Card sx={{ background: "#cddae6", border: 2, borderColor: "#181c1b" }}>
           <form onSubmit={handleSubmit}>
@@ -191,11 +194,16 @@ export default function Register() {
           </form>
         </Card>
       </div>
+      <div>
+        <p>
+          Already have an account? <Link className="link" to="/login">Sign in now!</Link>
+        </p>
+      </div>
       {sent ? (
         <div className="signup-div">
-          <h2>
+          <h2 className="registered-message">
             Your account has been registered! To log in click{" "}
-            <Link to={"/login"}>here</Link>.
+            <Link className="link" to={"/login"}>here</Link>.
           </h2>
         </div>
       ) : (
