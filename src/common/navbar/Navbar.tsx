@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.scss";
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Toolbar } from "@mui/material";
 import { Button } from "@mui/joy";
 import { useNavigate } from "react-router-dom";
 const Navbar = () => {
@@ -31,14 +31,7 @@ const Navbar = () => {
               },
             }}
           >
-            <Typography
-              variant="h6"
-              component="div"
-              align="left"
-              sx={{ flexGrow: 1, color: "#e7063c", fontFamily: "Wallpoet" }}
-            >
-              NO 0 DAYS
-            </Typography>
+            <img src={require('../../logo.png')} alt="No Zero Days Logo"/>
           </Button>
           <Box
             display="flex"
