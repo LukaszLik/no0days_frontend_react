@@ -1,0 +1,44 @@
+@import "../../common/_variables.scss";
+
+.register-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  //width: 40vw;
+  height: 45vh;
+  min-height: 40vh;
+  margin-top: 4vh;
+  margin-bottom: 3vh;
+}
+
+.signup-div {
+  padding-top: 5vh;
+  margin-bottom: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-input-error {
+  background-color: $primary !important;
+  border-color: darkred !important;
+  width: 18vw;
+  min-width: 15vw;
+}
+
+.input-helper {
+  font-size: 0.7em !important;
+  inline-size: 18vw;
+  justify-content: left;
+  color: darkred !important;
+}
+
+.registered-message {
+  color: $secondary;
+}
+
+.link {
+  text-decoration: none !important;
+}
