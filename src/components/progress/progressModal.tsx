@@ -1,5 +1,8 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Checkbox, List, Modal, ModalClose, Sheet, Typography } from "@mui/joy";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement } from "./counterSlice";
+import { RootState } from "../../store";
 
 type Progress = {
   progress: number;
@@ -21,6 +24,9 @@ type TaskAttributes = {
 };
 
 export default function ProgressModal(props: ModalProps) {
+  const count = useSelector((state: RootState) => state.counter.value);
+  const dispatch = useDispatch();
+
   // temporary values, to be pulled from backend
   const Tasks: TaskAttributes[] = [
     { id: 1, name: "Task 1", completed: false },
@@ -39,9 +45,16 @@ export default function ProgressModal(props: ModalProps) {
             task.id === id + 1 ? { ...task, completed: e.target.checked } : task
           )
         );
-        e.target.checked
-          ? props.val.setProgress(props.val.progress + 25)
-          : props.val.setProgress(props.val.progress - 25);
+        if (e.target.checked) {
+          props.val.setProgress(props.val.progress + 25);
+          dispatch(increment());
+        } else {
+          props.val.setProgress(props.val.progress - 25);
+          dispatch(decrement());
+        }
+        // e.target.checked
+        //   ? props.val.setProgress(props.val.progress + 25)
+        //   : props.val.setProgress(props.val.progress - 25);
       }
     });
   }

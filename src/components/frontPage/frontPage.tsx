@@ -2,8 +2,11 @@ import React from "react";
 import Progress from "../progress/progress";
 import "./frontPage.scss";
 import { Divider, Grid } from "@mui/joy";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 export default function FrontPage() {
+  const count = useSelector((state: RootState) => state.counter.value);
   const date = new Date();
   const month = date.toLocaleDateString("default", { month: "long" });
   const numberOfDays = new Date(
@@ -78,6 +81,13 @@ export default function FrontPage() {
           })}
         </Grid>
       </div>
+      <p>
+        You have worked on{" "}
+        <strong className="bold" data-testid="count">
+          {count}
+        </strong>{" "}
+        {count !== 1 ? "tasks" : "task"} this month!
+      </p>
     </div>
   );
 }

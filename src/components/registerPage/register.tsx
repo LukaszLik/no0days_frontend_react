@@ -196,14 +196,20 @@ export default function Register() {
       </div>
       <div>
         <p>
-          Already have an account? <Link className="link" to="/login">Sign in now!</Link>
+          Already have an account?{" "}
+          <Link className="link" to="/login">
+            Sign in now!
+          </Link>
         </p>
       </div>
       {sent ? (
         <div className="signup-div">
           <h2 className="registered-message">
             Your account has been registered! To log in click{" "}
-            <Link className="link" to={"/login"}>here</Link>.
+            <Link className="link" to={"/login"}>
+              here
+            </Link>
+            .
           </h2>
         </div>
       ) : (

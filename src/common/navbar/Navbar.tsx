@@ -31,7 +31,7 @@ const Navbar = () => {
               },
             }}
           >
-            <img src={require('../../logo.png')} alt="No Zero Days Logo"/>
+            <img src={require("../../logo.png")} alt="No Zero Days Logo" />
           </Button>
           <Box
             display="flex"
